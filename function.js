@@ -1,3 +1,4 @@
+//function to view user password 
 function view_password() {
     const togglePassword = document.querySelector('#togglePassword');
     const password = document.querySelector('input[name="password"]');
