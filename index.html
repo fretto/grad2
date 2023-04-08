@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
     <title>CoStudy</title>
     <style>
-        body {display: grid;flex-direction: column;min-height: 100vh;background-image: url("cs2.png"); background-repeat: no-repeat;background-size:1400px 1000px;background-attachment: fixed;font-family: copperplate, Candara;color:#366CC7;}
+        body {display: grid;flex-direction: column;min-height: 100vh;background-image: url("cs2.png"); background-repeat: no-repeat;background-size:1400px 1000px;background-attachment: fixed;
+        font-family: copperplate, Candara;color:#366CC7;}
 /*header styles*/
         .nav {overflow: hidden;}
         .nav a {display:flex;gap:20px;float: right;text-align: center;padding: 14px 16px;text-decoration: none;font-size: 17px;color: #366CC7;}
@@ -30,19 +31,20 @@
         @media (min-width: 768px) {
         .button-81 {font-size: 1.125rem;padding: 1rem 2rem;}}
 /*cards style*/
-        .cards-container {display: flex;flex-direction: row;justify-content: center;align-items: center;gap: 20px;margin:6em;}
+        .cards-container {display: flex;flex-direction: row;justify-content: center;align-items: center;gap: 20px;margin:0em 7em;}
         .card {display: flex;flex-direction: column;align-items: center;justify-content: space-between;border-radius: 10px;box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
           background-color: #fff;width: auto;height: auto;padding: 20px;box-sizing: border-box;transition: all 0.2s ease-in-out;}
-        .icon-circle {display: flex;justify-content: center;align-items: center;width: 90px;height: 90px;background-color: #366CC7;border-radius: 50%;margin-top: -60px;margin-bottom: 20px;}
-        .icon-circle i {font-size: 25px;color: #fff;}
+        .icon-circle {display: flex;justify-content: center;align-items: center;width: 90px;height: 90px;background-color: #9b9da0;border-radius: 50%;margin-top: -60px;margin-bottom: 20px;}
+        .icon-circle i {font-size: 35px;color: #fff;}
         .card h2 {font-size: 24px;margin-bottom: 20px;}
         .card-button {background-color: #366CC7;color: #fff;border: none;border-radius: 5px;padding: 10px 20px;font-size: 16px;cursor: pointer;transition: all 0.2s ease-in-out;}
         .card-button:hover {background-color: #fff;color: #366CC7;border: 2px solid #366CC7;}
+        .contact-card{width:300px;}
 /*page sections style*/
-        .section {font-size: 1.5em;text-align: center;background-color: #ebebeb;width: 100%;padding-bottom: 1em;}
-        .title {font-size: 2em;text-decoration:underline;text-underline-offset: 0.5em;padding:1.3em}
+        .section {text-align: center;margin: 1em;font-size: 1.5em;}
+        .title {margin: 2.5em 0em;font-size: 2em;}
 /*foteer style*/
-        footer {background-color: #707070;align-items: center;}
+        footer {background-color: #c9c7c7;align-items: center;}
     </style>
 </head>
 <body>
@@ -69,11 +71,12 @@
     <button class="button-81" role="button">Edit Portfolio</button>
     </div>
   <!--Our Services Section-->
-    <div class="title"> OUR SERVICES </div>
+  <div class="section">
+    <p class="title"> OUR SERVICES </p>
     <div class="cards-container">
       <div class="card">
         <div class="icon-circle">
-          <i class="bi bi-journal-code"></i>
+          <img src="portfolioicon.png" alt="portfolio-icon" width="60px" height="60px"/> 
         </div>
         <h2>E-Portfolio</h2>
         <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur repudiandae, eveniet nemo expedita quidem officiis adipisci laboriosam magnam maxime perspiciatis porro harum iste eum cupiditate asperiores totam, ab error libero?</p>
@@ -81,16 +84,18 @@
       </div>
       <div class="card">
         <div class="icon-circle">
-          <i class="bi bi-journal-code"></i>
+          <img src="coursesicons.png" alt="courses-icon" width="60px" height="60px"/>
         </div>
         <h2>Courses Library</h2>
         <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur repudiandae, eveniet nemo expedita quidem officiis adipisci laboriosam magnam maxime perspiciatis porro harum iste eum cupiditate asperiores totam, ab error libero?</p>
         <button class="card-button">View Courses</button>
       </div>
     </div>
+  </div>
     <br> <br> <br>
   <!--About Us Section-->
-    <div class="section"> <p class="title"> ABOUT US </p>
+  <div class="section">
+    <p class="title"> ABOUT US </p>
         <p> Welcome to our online courses website, where we've curated the best <br> 
           technical courses to help you advance your career and achieve your learning goals. <br> <br>
             Our objective is to recommend persgnalized courses that fit your needs,<br> whether you're looking to learn a new programming language, master <br>
@@ -99,25 +104,26 @@
             that will help you achieve your career goals...
         </p>
       </div>
-    <div> <p class="title"> WE ARE STANDING BY TO HELP </p> 
+      <div class="section">
+        <p class="title"> WE ARE STANDING BY TO HELP </p> 
     <div class="cards-container">
-      <div class="card">
+      <div class="card contact-card">
         <div class="icon-circle">
-          <i class="bi bi-journal-code"></i>
+          <i class="uil-fast-mail"></i>
         </div>
         <h2>EMAIL US</h2>
         <p> CoStudy@gmail.com </p>
       </div>
-      <div class="card">
+      <div class="card contact-card">
         <div class="icon-circle">
-          <i class="bi bi-journal-code"></i>
+          <i class="uil-phone"></i>
         </div>
         <h2>CALL OR TEXT</h2>
         <p> 0799811455 </p>
       </div>
-      <div class="card">
+      <div class="card contact-card">
         <div class="icon-circle">
-          <i class="bi bi-journal-code"></i>
+          <i class="uil-postcard"></i>
         </div>
         <h2>FOLLOW US</h2>
         <p> Twitter & IG: @CoStudy </p>
