@@ -11,9 +11,10 @@
         font-family: copperplate, Candara;color:#366CC7;}
 /*header styles*/
         .nav {overflow: hidden;}
-        .nav a {font-weight:bold;display:flex;gap:20px;float: right;text-align: center;padding: 14px 16px;text-decoration: none;font-size: 17px;color: #366CC7;}
-        .nav a:hover {color: #F2F2F2}
-        header {display: flex;justify-content: space-between;align-items: center;background-color:#F2F2F2;border-radius: 10px;opacity: 0.7;}
+        .nav a {font-weight:bold;display:flex;gap:20px;float: right;text-align: center;padding: 8px 16px;text-decoration: none;font-size: 17px;color: #366CC7;}
+        .nav a:hover {color: #F2F2F2;background-color: #366CC7;border-radius: 25px;}
+        .top{background-color:#F2F2F2;border-radius: 30px;opacity: 0.8;margin:10px;margin-right: 15px;box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;padding:10px;}
+        header {display: flex;justify-content: space-between;align-items: center;}
 /*search bar styles*/
         .whitetext {font-size: 3em;color: #F2F2F2;text-shadow: 1px 2px 2px rgba(181, 162, 231, 0.322);}
         .whitetext:hover {background-image: linear-gradient(to bottom, #366CC7, #8DB3F0);-webkit-background-clip: text;-webkit-text-fill-color: transparent;}
@@ -45,7 +46,8 @@
 /*page sections style*/
         .section {text-align: center;margin: 1em;font-size: 1.5em;}
         .title {position: relative;margin: 2.5em 0em;font-size: 2em;display: inline-block;/* background-image: linear-gradient(to bottom, #366CC7, #8DB3F0);-webkit-background-clip: text;-webkit-text-fill-color: transparent;text-shadow: 1px 2px 2px rgba(181, 162, 231, 0.322);*/}
-        .about {background-color: #ADAEB3;margin: 0%;}
+        .about {background-color: #ADAEB3;margin: 0%;box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);border: 1px solid #8DB3F0;}
+        .aboutus {margin:0em 7em;margin-bottom: 3.3em;}
         .title::before {content: "";position: absolute;bottom: -15px;left: 0;width: 50%;height: 3px;background-color: #366CC7;transform-origin: bottom right;transform: scaleX(0);transition: transform 0.3s ease-out;}
         .title::after {content: "";position: absolute;bottom: -15px;right: 0;width: 50%;height: 3px;background-color: #366CC7;transform-origin: bottom left;transform: scaleX(0);transition: transform 0.3s ease-out;}
         .title:hover::before {transform-origin: bottom left;transform: scaleX(1);}
@@ -53,15 +55,16 @@
 /*foteer style*/
         footer {background-color: #ADAEB3;text-align: center;}
         .footernav {display: flex;justify-content: center;}
+        .copyright {background-color: #8d8a8a;height: 30px;padding-top: 10px;color:white;}
     </style>
 </head>
 <body>
   <!-----------------------start of header---------------------------->
   <header>
     <a href="index.html"><img src="logo.png" alt="website-logo" width="160em" height="120em"/></a>
-    <div class="nav">
-        <a class="active" href="#home">SIGN UP</a>
-        <a href="#login">LOG IN</a>
+    <div class="nav top">
+        <a href="signup.html">SIGN UP</a>
+        <a href="login.html">LOG IN</a>
         <a href="#about">ABOUT</a>
         <a href="#services">SERVICES</a>
     </div> 
@@ -79,7 +82,7 @@
     <div>
     <button class="button-81" role="button">View Courses</button>
     <button class="button-81" role="button">Edit Portfolio</button>
-    </div>
+    </div> 
   <!--Our Services Section-->
   <div class="section" id="services">
     <p class="title"> OUR SERVICES </p>
@@ -120,7 +123,8 @@
   <!--About Us Section-->
   <div class="section about" id="about">
     <p class="title"> ABOUT US </p>
-        <p style="margin:0em 7em;margin-bottom: 3.3em;"> Welcome to our online courses website, where we've curated the best 
+    <!--<img src="college1.jpeg" alt="courses-icon"  width="320px" height="214px" style="float:right"/>-->
+        <p class="aboutus"> Welcome to our online courses website, where we've curated the best 
           technical courses to help you advance your career and achieve your learning goals. <br> <br>
             Our objective is to recommend persgnalized courses that fit your needs, whether you're looking to learn a new programming language, master 
             a particular skill or prepare for a certification exam, we've got you covered. <br> <br>
@@ -160,12 +164,13 @@
     <footer> 
       <a href="index.html"><img src="logo.png" alt="website-logo" width="160em" height="120em"/></a> 
         <div class="nav footernav">
-          <a class="active" href="#home">SIGN UP</a>
+          <a href="#home">SIGN UP</a>
           <a href="#login">LOG IN</a>
           <a href="#about">ABOUT</a>
           <a href="#login">SERVICES</a>
         </div>  
-        <p> All Right reserved - CoStudy</p>
+        <br> <br>
+        <div class="copyright"> All Right reserved - CoStudy</div>
     </footer>
 <!-------------------------End of footer section----------------------------->
 </body>
