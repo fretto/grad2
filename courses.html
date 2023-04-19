@@ -71,6 +71,74 @@
         .course-details a:hover {
           background-color: #0062cc;
         }
+        /*cat name*/
+        .course-image {
+          position: relative;
+        }
+
+        .category-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          padding: 5px 10px;
+          background-color: rgba(115, 176, 212, 0.795);
+          height:190px; width:300px;
+          color: #fdf4f4;
+          font-size: 40px;
+
+          font-weight: bold;
+          text-transform: uppercase;
+        }
+
+        /*js*/
+        .slider {
+          width: 100%;
+          background-color: #ddd;
+          overflow: hidden;
+          position: relative;
+        }
+        .slider-container {
+          display: flex;
+          transition: transform 0.5s ease-in-out;
+        }
+        .slider-item {
+          width: 100%;
+          padding: 20px;
+          box-sizing: border-box;
+          color: #444;
+        }
+        .slider-item p {
+          font-size: 24px;
+        }
+        .slider-arrows {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          padding: 0 20px;
+          box-sizing: border-box;
+        }
+        .slider-arrow-left,
+        .slider-arrow-right {
+          color: #fff;
+          background-color: #333;
+          border: none;
+          font-size: 24px;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          cursor: pointer;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .slider-arrow-left:hover,
+        .slider-arrow-right:hover {
+          background-color: #555;
+        }
+
 
     </style>
 </head>
@@ -94,7 +162,7 @@
 
           <div class="course-card">
               <div class="course-image">
-                <img src="kasit.png" alt="Course Image">
+                <img src="kasit.png" alt="Course Image" data-category="Web Development">
               </div>
             <div class="course-details">
                 <h3>Course Title</h3>
@@ -111,6 +179,49 @@
             </div>
       </div>
     </div>
+
+
+<!-----------------------end of courses------------------------>
+
+<!----html code for statements (change every 25 seconds)-->
+<div class="slider">
+  <div class="slider-container">
+    <div class="slider-item active">
+      <p>Statement 1</p>
+    </div>
+    <div class="slider-item">
+      <p>Statement 2</p>
+    </div>
+    <div class="slider-item">
+      <p>Statement 3</p>
+    </div>
+
+    <div class="slider-item">
+      <p>Statement 4</p>
+    </div>
+    <div class="slider-item">
+      <p>Statement 5</p>
+    </div>
+
+    <div class="slider-item">
+      <p>Statement 6</p>
+    </div>
+
+    <div class="slider-item">
+      <p>Statement 7</p>
+    </div>
+    <div class="slider-item">
+      <p>Statement 8</p>
+    </div>
+  </div>
+  <div class="slider-arrows">
+    <div class="slider-arrow-left"><</div>
+    <div class="slider-arrow-right">></div>
+  </div>
+</div>
+
+
+
 <!-----------------------start of footer section------------------------->
     <footer> 
         <a href="index.html"><img src="logo.png" alt="website-logo" width="160em" height="120em"/></a> 
@@ -124,5 +235,59 @@
         <div class="copyright"> All Right reserved - CoStudy</div>
     </footer>
 <!-------------------------End of footer section----------------------------->
+<script>
+/*code to display cat name above course img*/ 
+document.addEventListener('DOMContentLoaded', () => {
+
+  const courseImages = document.querySelectorAll(".course-image img");
+
+// Loop through each course image and add a category name overlay
+courseImages.forEach((image) => {
+  const categoryName = image.dataset.category; // Get the category name from the data-category attribute
+  const overlay = document.createElement("div"); // Create a new div element for the overlay
+  overlay.classList.add("category-overlay"); // Add the "category-overlay" class to the div element
+  overlay.textContent = categoryName; // Set the text content of the div element to the category name
+  image.parentElement.appendChild(overlay); // Add the div element as a child of the course image's parent element
+});
+});
+/*java script statments*/
+const sliderItems = document.querySelectorAll('.slider-item');
+const sliderArrows = document.querySelectorAll('.slider-arrow');
+const sliderContainer = document.querySelector('.slider-container');
+const slideWidth = sliderItems[0].clientWidth;
+let slideIndex = 0;
+
+// Set the initial position of the slider container
+sliderContainer.style.transform = `translateX(${-slideWidth * slideIndex}px)`;
+
+// Handle arrow click events
+sliderArrows.forEach((arrow) => {
+  arrow.addEventListener('click', () => {
+    if (arrow.classList.contains('slider-arrow-left')) {
+      slideIndex--;
+    } else {
+      slideIndex++;
+    }
+    if (slideIndex < 0) {
+      slideIndex = sliderItems.length - 1;
+    }
+    if (slideIndex >= sliderItems.length) {
+      slideIndex = 0;
+    }
+    sliderContainer.style.transform = `translateX(${-slideWidth * slideIndex}px)`;
+  });
+});
+
+// Change the active slider item every 25 seconds
+setInterval(() => {
+  slideIndex++;
+  if (slideIndex >= sliderItems.length) {
+    slideIndex = 0;
+  }
+  sliderContainer.style.transform = `translateX(${-slideWidth * slideIndex}px)`;
+}, 25000);
+
+</script>
+
 </body>
 </html>
