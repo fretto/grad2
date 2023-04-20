@@ -10,12 +10,13 @@
     <style>
         body{display:grid}
         .courses-container{border-radius:10px;background-color:#ccc;margin-bottom:2cm;display:flex;flex-wrap:wrap;gap:50px}
-        .course-card{position:relative;background-color:#ccc;flex-basis:calc(31% - 15px);height:400px;border:1px solid #ccc;border-radius:10px;overflow:hidden;box-shadow:0 4px 8px rgba(0,0,0,0.1);transition:transform .2s ease-in-out;display:grid;flex-direction:column;padding-bottom:10px}
+        .course-card{position:relative;background-color:#ccc;flex-basis:calc(31% - 15px);height:440px;border:1px solid #ccc;border-radius:10px;overflow:hidden;box-shadow:0 4px 8px rgba(0,0,0,0.1);transition:transform .2s ease-in-out;display:grid;flex-direction:column;padding-bottom:10px}
         .course-card:hover{transform:translateY(-5px);box-shadow:0 8px 16px rgba(0,0,0,0.2)}
         .course-image img{width:100%;height:200px;object-fit:cover}
         .course-details{padding:20px;flex-grow:1}
         .course-details h3{font-size:1.5rem;margin-top:0}
         .course-details p{font-size:1.1rem;margin-top:10px}
+        .course-details p{margin-bottom:10px;overflow:hidden;text-overflow:ellipsis;max-width:100%;}
         .course-details a{display:inline-block;margin-top:20px;padding:10px 20px;background-color:#007bff;color:#fff;border-radius:5px;text-decoration:none;transition:background-color .2s ease-in-out}
         .course-details a:hover{background-color:#0062cc}
         .course-image{position:relative}
@@ -45,17 +46,15 @@
 
 <!----html code for statements (change every 25 seconds)-->
 <div style="background-color: #ccc; margin: 4em 5em;border-radius: 20px;padding: 3em;">
-
   <h1> Courses </h1> 
-
-  <h2> Explore our comprehensive technical courses and discover how you can learn and excel in these fields. </h2>
+  <h2> Explore our comprehensive technical courses and discover how you can learn and excel in these fields... </h2>
   <div class="slider">
     <div class="slide-track">
       
       <div class="slide">
         <p> IT Feild</p>
       </div>
-<!--testing slide- delete and loop from database-->
+<!--testing slide - delete them - loop from database-->
       <div class="slide">
         <p> IT Feild</p>
       </div>
@@ -99,22 +98,16 @@
 
     </div>
   </div>
-
-  
 <!--end of slider-->  
-    
-
-        <!---<p>"Education is the key to unlocking your potential."</p>-->
         <!-----------------------Courses View---------------------------->
-        <div class="courses-container">
-
+    <div class="courses-container">
           <div class="course-card">
               <div class="course-image">
                 <img src="kasit.png" alt="Course Image" data-category="Web Development">
               </div>
             <div class="course-details">
                 <h3>Course Title</h3>
-                <p>Course Description</p>
+                <p id="course-description"> Courses description Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus atque laudantium quis non modi explicabo doloribus quisquam consequatur commodi hic numquam, quos earum aspernatur laboriosam pariatur sequi eligendi vitae voluptatem.</p>
                 <div class="rating">
                     <span class="star">&#9733;</span>
                     <span class="star">&#9733;</span>
@@ -128,8 +121,6 @@
             </div>
       </div>
     </div>
-
-
 <!-----------------------end of courses------------------------>
 
 <!-----------------------start of footer section------------------------->
@@ -146,11 +137,9 @@
     </footer>
 <!-------------------------End of footer section----------------------------->
 <script>
-    /*code to display cat name above course img*/ 
+/* display cat name above course img*/ 
     document.addEventListener('DOMContentLoaded', () => {
-
     const courseImages = document.querySelectorAll(".course-image img");
-
     // Loop through each course image and add a category name overlay
     courseImages.forEach((image) => {
     const categoryName = image.dataset.category; // Get the category name from the data-category attribute
@@ -160,6 +149,13 @@
     image.parentElement.appendChild(overlay); // Add the div element as a child of the course image's parent element
     });
     });
+/*limit descreption char appears*/
+    // Get the course description element
+    var description = document.getElementById("course-description");
+    // Truncate the course description to 100 characters
+    var truncatedDescription = description.textContent.substr(0, 70) + "...";
+    // Set the truncated description as the content of the element
+    description.textContent = truncatedDescription;
 </script>
 
 </body>
