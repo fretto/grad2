@@ -4,31 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="indexstyles.css">
+    <link rel="stylesheet" href="coursesstyles.css">
     <link rel="icon" type="image/x-icon" href="favicon.png"/>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <meta http-equiv="X-pUA-Compatible" content="ie=edge" />
+    <script type="text/javascript" src="function.js"></script>
     <title>CoStudy</title>
-    <style>
-        body{display:grid}
-        .courses-container{border-radius:10px;background-color:#ccc;margin-bottom:2cm;display:flex;flex-wrap:wrap;gap:50px}
-        .course-card{position:relative;background-color:#ccc;flex-basis:calc(31% - 15px);height:440px;border:1px solid #ccc;border-radius:10px;overflow:hidden;box-shadow:0 4px 8px rgba(0,0,0,0.1);transition:transform .2s ease-in-out;display:grid;flex-direction:column;padding-bottom:10px}
-        .course-card:hover{transform:translateY(-5px);box-shadow:0 8px 16px rgba(0,0,0,0.2)}
-        .course-image img{width:100%;height:200px;object-fit:cover}
-        .course-details{padding:20px;flex-grow:1}
-        .course-details h3{font-size:1.5rem;margin-top:0}
-        .course-details p{font-size:1.1rem;margin-top:10px}
-        .course-details p{margin-bottom:10px;overflow:hidden;text-overflow:ellipsis;max-width:100%;}
-        .course-details a{display:inline-block;margin-top:20px;padding:10px 20px;background-color:#007bff;color:#fff;border-radius:5px;text-decoration:none;transition:background-color .2s ease-in-out}
-        .course-details a:hover{background-color:#0062cc}
-        .course-image{position:relative}
-        .category-overlay{position:absolute;top:0;left:0;padding:5px 10px;background-color:rgba(115,176,212,0.795);height:190px;width:300px;color:#fdf4f4;font-size:40px;font-weight:700;text-transform:uppercase;text-align:center}
-        @keyframes scroll {0%{transform:translateX(0)}100%{transform:translateX(calc(-250px * 7))}}
-        p{color:#0062cc;font-size:larger}
-        .slider{background:#ccc;height:auto;margin:auto;overflow:hidden;position:relative;width:960px;&::before,&::after { @include white-gradient;content:"";height:100px;position:absolute;width:200px;z-index:2}
-        &::after{right:0;top:0;transform:rotateZ(180deg)}
-        &::before{left:0;top:0}
-        .slide-track{animation:scroll 40s linear infinite;display:flex;width:calc(250px * 14)}
-        .slide{height:100px;width:250px}
-    </style>
 </head>
 <body>
 <!-----------------------start of header---------------------------->
@@ -42,27 +24,37 @@
         </div> 
     </header>
 <!-----------------------End of header---------------------------->
-
-
 <!----html code for statements (change every 25 seconds)-->
 <div style="background-color: #ccc; margin: 4em 5em;border-radius: 20px;padding: 3em;">
-  <h1> Courses </h1> 
+    <h1  style="display:inline-block;"> Courses </h1>  
+    <span>
+        <form action="" class="search-bar" style="float: right;">
+            <input type="search" name="search" pattern=".*\S.*" placeholder="search...">
+            <button class="search-btn" type="submit">
+            </button>
+        </form>
+    </span>
+
+<div style="text-align:center;margin-bottom:10px; margin-top: 50px;" >
+      <p style="font-size: 30px;"> No results Found  </p>
+      <img src="noresult.png" alt="no result found" width="600px" height="350px">
+</div>
   <h2> Explore our comprehensive technical courses and discover how you can learn and excel in these fields... </h2>
   <div class="slider">
     <div class="slide-track">
       
       <div class="slide">
-        <p> IT Feild</p>
+        <p> IT Felid</p>
       </div>
 <!--testing slide - delete them - loop from database-->
       <div class="slide">
-        <p> IT Feild</p>
+        <p> IT Felid</p>
       </div>
       <div class="slide">
         <p> IT Felid</p>
       </div>
       <div class="slide">
-        <p> IT Feild</p>
+        <p> IT Felid</p>
       </div>
       <div class="slide">
         <p> IT Felid</p>
@@ -95,7 +87,6 @@
         <p> IT Felid</p>
       </div>
 <!------------ end of testing slide--------------------->
-
     </div>
   </div>
 <!--end of slider-->  
@@ -108,16 +99,16 @@
             <div class="course-details">
                 <h3>Course Title</h3>
                 <p id="course-description"> Courses description Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus atque laudantium quis non modi explicabo doloribus quisquam consequatur commodi hic numquam, quos earum aspernatur laboriosam pariatur sequi eligendi vitae voluptatem.</p>
+                 
                 <div class="rating">
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
+                    <span class="fa fa-star" data-rating="1"></span>
+                    <span class="fa fa-star" data-rating="2"></span>
+                    <span class="fa fa-star" data-rating="3"></span>
+                    <span class="fa fa-star" data-rating="4"></span>
+                    <span class="fa fa-star" data-rating="5"></span>
                 </div>
                 <a href="#">Learn More</a>
               </div>
-
             </div>
       </div>
     </div>
@@ -137,7 +128,7 @@
     </footer>
 <!-------------------------End of footer section----------------------------->
 <script>
-/* display cat name above course img*/ 
+    /* display cat name above course img*/ 
     document.addEventListener('DOMContentLoaded', () => {
     const courseImages = document.querySelectorAll(".course-image img");
     // Loop through each course image and add a category name overlay
@@ -156,7 +147,26 @@
     var truncatedDescription = description.textContent.substr(0, 70) + "...";
     // Set the truncated description as the content of the element
     description.textContent = truncatedDescription;
-</script>
 
+/*rating system*/
+    const stars = document.querySelectorAll(".fa-star");
+    function handleStarClick(e) {
+        const clickedStar = e.target;
+        const clickedRating = clickedStar.getAttribute("data-rating");
+          for (let i = 0; i < stars.length; i++) {
+              const star = stars[i];
+              const starRating = star.getAttribute("data-rating");
+              if (starRating <= clickedRating) {
+                star.classList.add("active");
+              } else {
+                star.classList.remove("active");
+              }
+          }
+    }
+      stars.forEach((star) => {
+          star.classList.remove("active");
+          star.addEventListener("click", handleStarClick);
+      });
+</script>
 </body>
 </html>

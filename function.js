@@ -1,3 +1,4 @@
+/*******************************used in sign in page****************************/
 //function to view user password 
 function view_password() {
     const togglePassword = document.querySelector('#togglePassword');
@@ -13,3 +14,8 @@ function view_password() {
   }
   
   document.querySelector('#togglePassword').addEventListener('click', view_password)
+
+
+/*******************************used in courses page****************************/
+
+    
