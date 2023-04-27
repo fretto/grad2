@@ -26,7 +26,7 @@
 <!-----------------------End of header---------------------------->
 <!----html code for statements (change every 25 seconds)-->
 <div style="background-color: #ccc; margin: 4em 5em;border-radius: 20px;padding: 3em;">
-    <h1  style="display:inline-block;"> Courses </h1>  
+    <h1 style="display:inline-block;"> Courses </h1>  
     <span>
         <form action="" class="search-bar" style="float: right;">
             <input type="search" name="search" pattern=".*\S.*" placeholder="search...">
@@ -34,11 +34,11 @@
             </button>
         </form>
     </span>
-
+<!----
 <div style="text-align:center;margin-bottom:10px; margin-top: 50px;" >
       <p style="font-size: 30px;"> No results Found  </p>
       <img src="noresult.png" alt="no result found" width="600px" height="350px">
-</div>
+</div> -->
   <h2> Explore our comprehensive technical courses and discover how you can learn and excel in these fields... </h2>
   <div class="slider">
     <div class="slide-track">
@@ -98,7 +98,92 @@
               </div>
             <div class="course-details">
                 <h3>Course Title</h3>
-                <p id="course-description"> Courses description Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus atque laudantium quis non modi explicabo doloribus quisquam consequatur commodi hic numquam, quos earum aspernatur laboriosam pariatur sequi eligendi vitae voluptatem.</p>
+                <p class="course-description"> Courses description Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus atque laudantium quis non modi explicabo doloribus quisquam consequatur commodi hic numquam, quos earum aspernatur laboriosam pariatur sequi eligendi vitae voluptatem.</p>
+                 
+                <div class="rating">
+                    <span class="fa fa-star" data-rating="1"></span>
+                    <span class="fa fa-star" data-rating="2"></span>
+                    <span class="fa fa-star" data-rating="3"></span>
+                    <span class="fa fa-star" data-rating="4"></span>
+                    <span class="fa fa-star" data-rating="5"></span>
+                </div>
+                <a href="#">Learn More</a>
+              </div>
+            </div>
+
+
+
+            <div class="course-card">
+              <div class="course-image">
+                <img src="kasit.png" alt="Course Image" data-category="Web Development">
+              </div>
+            <div class="course-details">
+                <h3>Course Title</h3>
+                <p class="course-description"> Courses description Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus atque laudantium quis non modi explicabo doloribus quisquam consequatur commodi hic numquam, quos earum aspernatur laboriosam pariatur sequi eligendi vitae voluptatem.</p>
+                 
+                <div class="rating">
+                    <span class="fa fa-star" data-rating="1"></span>
+                    <span class="fa fa-star" data-rating="2"></span>
+                    <span class="fa fa-star" data-rating="3"></span>
+                    <span class="fa fa-star" data-rating="4"></span>
+                    <span class="fa fa-star" data-rating="5"></span>
+                </div>
+                <a href="#">Learn More</a>
+              </div>
+            </div>
+
+
+
+
+            <div class="course-card">
+              <div class="course-image">
+                <img src="kasit.png" alt="Course Image" data-category="Web Development">
+              </div>
+            <div class="course-details">
+                <h3>Course Title</h3>
+                <p class="course-description"> Courses description Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus atque laudantium quis non modi explicabo doloribus quisquam consequatur commodi hic numquam, quos earum aspernatur laboriosam pariatur sequi eligendi vitae voluptatem.</p>
+                 
+                <div class="rating">
+                    <span class="fa fa-star" data-rating="1"></span>
+                    <span class="fa fa-star" data-rating="2"></span>
+                    <span class="fa fa-star" data-rating="3"></span>
+                    <span class="fa fa-star" data-rating="4"></span>
+                    <span class="fa fa-star" data-rating="5"></span>
+                </div>
+                <a href="#">Learn More</a>
+              </div>
+            </div>
+
+
+
+
+            <div class="course-card">
+              <div class="course-image">
+                <img src="kasit.png" alt="Course Image" data-category="Web Development">
+              </div>
+            <div class="course-details">
+                <h3>Course Title</h3>
+                <p class="course-description"> Courses description Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus atque laudantium quis non modi explicabo doloribus quisquam consequatur commodi hic numquam, quos earum aspernatur laboriosam pariatur sequi eligendi vitae voluptatem.</p>
+                 
+                <div class="rating">
+                    <span class="fa fa-star" data-rating="1"></span>
+                    <span class="fa fa-star" data-rating="2"></span>
+                    <span class="fa fa-star" data-rating="3"></span>
+                    <span class="fa fa-star" data-rating="4"></span>
+                    <span class="fa fa-star" data-rating="5"></span>
+                </div>
+                <a href="#">Learn More</a>
+              </div>
+            </div>
+
+
+            <div class="course-card">
+              <div class="course-image">
+                <img src="kasit.png" alt="Course Image" data-category="Web Development">
+              </div>
+            <div class="course-details">
+                <h3>Course Title</h3>
+                <p class="course-description"> Courses description Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus atque laudantium quis non modi explicabo doloribus quisquam consequatur commodi hic numquam, quos earum aspernatur laboriosam pariatur sequi eligendi vitae voluptatem.</p>
                  
                 <div class="rating">
                     <span class="fa fa-star" data-rating="1"></span>
@@ -140,33 +225,44 @@
     image.parentElement.appendChild(overlay); // Add the div element as a child of the course image's parent element
     });
     });
-/*limit descreption char appears*/
-    // Get the course description element
-    var description = document.getElementById("course-description");
-    // Truncate the course description to 100 characters
-    var truncatedDescription = description.textContent.substr(0, 70) + "...";
-    // Set the truncated description as the content of the element
-    description.textContent = truncatedDescription;
+
+    // Get all the elements with the class "course-description"
+    var descriptions = document.getElementsByClassName("course-description");
+
+    // Loop through all the elements and truncate the text
+    for (var i = 0; i < descriptions.length; i++) {
+      var description = descriptions[i];
+      var truncatedDescription = description.textContent.substr(0, 70) + "...";
+      description.textContent = truncatedDescription;
+    }
 
 /*rating system*/
-    const stars = document.querySelectorAll(".fa-star");
-    function handleStarClick(e) {
-        const clickedStar = e.target;
-        const clickedRating = clickedStar.getAttribute("data-rating");
-          for (let i = 0; i < stars.length; i++) {
-              const star = stars[i];
-              const starRating = star.getAttribute("data-rating");
-              if (starRating <= clickedRating) {
-                star.classList.add("active");
-              } else {
-                star.classList.remove("active");
-              }
-          }
+function handleStarClick(e, ratingSystem) {
+  const clickedStar = e.target;
+  const clickedRating = clickedStar.getAttribute("data-rating");
+  const stars = ratingSystem.querySelectorAll(".fa-star");
+  for (let i = 0; i < stars.length; i++) {
+    const star = stars[i];
+    const starRating = star.getAttribute("data-rating");
+    if (starRating <= clickedRating) {
+      star.classList.add("active");
+    } else {
+      star.classList.remove("active");
     }
-      stars.forEach((star) => {
-          star.classList.remove("active");
-          star.addEventListener("click", handleStarClick);
-      });
+  }
+}
+
+const ratingSystems = document.querySelectorAll(".rating");
+ratingSystems.forEach((ratingSystem) => {
+  const stars = ratingSystem.querySelectorAll(".fa-star");
+  stars.forEach((star) => {
+    star.classList.remove("active");
+    star.addEventListener("click", (e) => {
+      handleStarClick(e, ratingSystem);
+    });
+  });
+});
+
 </script>
 </body>
 </html>
