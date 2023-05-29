@@ -108,15 +108,21 @@
                                 </div>
                                 <div class="panel-body">
                                 <div class="form-group">
-                                    <label class="col-sm-2"> Name</label>
+                                    <label class="col-sm-2"> First Name </label>
                                     <div class="col-sm-10">
-                                    <input type="text" name="name" class="form-control" value="">
+                                    <input type="text" name="FirstName " class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2"> Last Name </label>
+                                    <div class="col-sm-10">
+                                    <input type="text" name="LastName" class="form-control" value="">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-2"> Major</label>
                                     <div class="col-sm-10">
-                                    <input type="text" name="major" class="form-control" value="">
+                                    <input type="text" name="Major" class="form-control" value="">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -128,7 +134,7 @@
                                 <div class="form-group">
                                     <label class="col-sm-2">Website</label>
                                     <div class="col-sm-10">
-                                    <input type="url" name="website" class="form-control" value="">
+                                    <input type="url" name="Website" class="form-control" value="">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -140,7 +146,7 @@
                                 <div class="form-group">
                                     <label class="col-sm-2">Github</label>
                                     <div class="col-sm-10">
-                                    <input type="text" name="github" class="form-control" value="">
+                                    <input type="text" name="GitHub" class="form-control" value="">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -155,6 +161,7 @@
                                     <input type="tel" name="phone" class="form-control" value="">
                                     </div>
                                 </div>
+
                                 </div>
                             </div>
 
@@ -183,8 +190,8 @@
                                     <div id="course-container">
                                         <div class="form-row course-row">
                                             <div class="form-group col-md-6">
-                                                <label for="onCourses" class="col-sm-6">Add New Course Name</label>
-                                                <select id="onCourses" name="courses[]" class="col-sm-10 selectpicker" data-live-search="true" data-size="5">
+                                                <label for="uCourses" class="col-sm-6">Add New Course Name</label>
+                                                <select id="Courses" name="uCourses" class="col-sm-10 selectpicker" data-live-search="true" data-size="5">
                                                 <option value="default" disabled selected>Select a course</option>
                                                 <option value="HTML">HTML</option>
                                                 <option value="JavaScript">JavaScript</option>
@@ -196,7 +203,7 @@
                                     
                                             <div class="form-group col-md-2">
                                                 <label for="mark">Mark:</label>
-                                                <select class="form-control" name="mark[]" required>
+                                                <select class="form-control" name="Courses" required>
                                                     <option value="default" disabled selected>Select a mark</option>
                                                     <option value="A">A</option>
                                                     <option value="Am">A-</option>
@@ -236,16 +243,16 @@
                                         </div>
                                         
                                     </div>
-                                    
+
                                     <div class="form-group">
                                         <label for="onCourses" class="col-sm-3">Add New Online Course URL</label>
-                                        <select id="onCourses" name="onCourses[]" class="col-sm-10 selectpicker" data-live-search="true" multiple data-size="5">
+                                        <select id="onCourses" name="onCourses" class="col-sm-10 selectpicker" data-live-search="true" multiple data-size="5">
                                             <option value="default" selected disabled>Courses</option>
-                                            <!--FOR LOOP ON COURSES-->
-                                            <option value="html">test</option>
-
+                                            <option value="test">test</option>
                                         </select>
                                     </div>
+
+
                                     </div>
 
                                 
@@ -340,7 +347,7 @@
       courseSelect.setAttribute('data-live-search', 'true');
       courseSelect.setAttribute('data-size', '5');
       courseSelect.className = 'form-control';
-      courseSelect.name = 'onCourses[]';
+      courseSelect.name = 'uCourses';
       courseSelect.required = true;
 
 
@@ -378,12 +385,12 @@
       markCol.className = 'form-group col-md-2';
 
       const markLabel = document.createElement('label');
-      markLabel.textContent = 'Mark:';
+      markLabel.textContent = 'Grade:';
       markCol.appendChild(markLabel);
 
       const markSelect = document.createElement('select');
       markSelect.className = 'form-control';
-      markSelect.name = 'mark[]';
+      markSelect.name = 'Grade';
       markSelect.required = true;
 
       const markOptionDefault = document.createElement('option');
@@ -448,36 +455,45 @@
 
 <!----api request script-->
 <script>
-    const form = document.getElementById('myForm');
+    document.addEventListener('DOMContentLoaded', function() {
 
-    form.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the form from submitting normally
-//****************************JSON FILLE SELECT - TAKE NAMES 
-        // Get the form data
-        const formData = new FormData(form);
+const form = document.getElementById('myForm');
 
-        // Send the form data to the backend API
-        fetch('/your-backend-api-url', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => {
-            // Handle the response from the backend API
-            if (response.ok) {
-                // Success
-                console.log('Data sent successfully');
-                // Do something else (e.g., show a success message)
-            } else {
-                // Error
-                console.error('Error sending data');
-                // Do something else (e.g., show an error message)
-            }
-        })
-        .catch(error => {
-            console.error('Error sending data', error);
-            // Handle the error (e.g., show an error message)
-        });
+form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting normally
+
+    // Get the form data
+    const formData = new FormData(form);
+
+    // Convert the form data to JSON
+    const jsonData = JSON.stringify(Object.fromEntries(formData));
+
+    fetch('/backend-api-url', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: jsonData
+    })
+    .then(response => {
+        // Handle the response from the backend API
+        if (response.ok) {
+            // Success
+            console.log('Data sent successfully');
+            // Do something else (e.g., show a success message)
+        } else {
+            // Error
+            console.error('Error sending data');
+            // Do something else (e.g., show an error message)
+        }
+    })
+    .catch(error => {
+        console.error('Error sending data', error);
+        // Handle the error (e.g., show an error message)
     });
+});
+});
+
 </script>
 </body>  
 <!-----------------------start of footer section------------------------->
