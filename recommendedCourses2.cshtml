@@ -1,0 +1,32 @@
+        <!-----------------------Courses View---------------------------->
+        <div class="courses-container">
+
+            <!--****FOR LOOP ON REC COURSES****-->
+            @foreach(var course in Model)
+            {
+            <div class="course-card">
+                <a href="@Url.OnlineCourse.Content(course.CourseURL)" class="course-card-link">
+
+                <div class="course-image">
+                        <img src="~/images/banner.jpg" alt="Course Image" data-category="@course.OnlineCourse.Category">
+                </div>
+                <div class="course-details">
+                    <h4 style="font-weight: bolder;color:#0c48db">@course.OnlineCourse.CourseTitle</h4>
+                    <h5 style="font-weight: light;" class="course-description"> @course.OnlineCourse.CourseDescription</h5>
+
+                        <i class="bi bi-eye-fill" style="float:right">@course.OnlineCourse.ReviewCount</i>
+                    <!---****************ADD IF STATEMENT FOR FLAG***********-->
+                        @if (course.Flag)
+                        {
+                            <small style="float:left;color:blue;padding-top: 5px;">*you have a missed prerequisite</small>
+                        }
+                        <!---****************END IF STATEMENT FOR FLAG***********-->
+                </div>
+                </a>
+            </div>
+            }
+            <!--****END FOR LOOP ON REC COURSES****-->
+
+        </div>
+    </div>
+    <!-----------------------end of courses------------------------>
