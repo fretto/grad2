@@ -1,0 +1,27 @@
+@*    start of pagination bar
+*@    <div class="Pcontainer">
+
+    @if (page.TotalPages > 0)
+    {
+
+        <ul class="pagination justify-content-end">
+
+            @for (var pge = page.StartPage; pge <= page.EndPage; pge++)
+            {
+
+                <li class="page-item @(pge==page.CurrentPage?"active" :"")">
+                    <a class="page-link" asp-controller="Home" asp-action="AllCourses1" asp-route-pg="@pge">@pge</a>
+
+
+
+
+                </li>
+
+            }
+
+        </ul>
+
+    }
+
+    @*        end of pagination
+    *@
